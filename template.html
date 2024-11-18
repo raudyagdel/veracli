@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+</head>
+<body class="bg-white-100">
+
+  <!-- Title and Subtitle -->
+  <div class="px-4 sm:px-8 mt-8">
+    <h1 class="text-3xl font-bold text-gray-700">Incident Dashboard</h1>
+    <p class="text-gray-500 mt-2">Overview of all incidents and their current status</p>
+  </div>
+
+  <!-- Summary Section -->
+  <div class="grid grid-cols-1 gap-4 px-4 mt-8 sm:grid-cols-4 sm:px-8">
+    <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+      <div class="p-4 bg-red-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7"></path>
+        </svg>
+      </div>
+      <div class="px-4 text-gray-700">
+        <h3 class="text-sm tracking-wider">Critical</h3>
+        <p class="text-3xl">4</p>
+      </div>
+    </div>
+    <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+      <div class="p-4 bg-orange-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6"></path>
+        </svg>
+      </div>
+      <div class="px-4 text-gray-700">
+        <h3 class="text-sm tracking-wider">High</h3>
+        <p class="text-3xl">26</p>
+      </div>
+    </div>
+    <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+      <div class="p-4 bg-yellow-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7a4 4 0 01-8 0"></path>
+        </svg>
+      </div>
+      <div class="px-4 text-gray-700">
+        <h3 class="text-sm tracking-wider">Medium</h3>
+        <p class="text-3xl">28</p>
+      </div>
+    </div>
+    <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+      <div class="p-4 bg-green-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292"></path>
+        </svg>
+      </div>
+      <div class="px-4 text-gray-700">
+        <h3 class="text-sm tracking-wider">Low</h3>
+        <p class="text-3xl">1</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table Section -->
+  <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10 mt-8 bg-white">
+    <table class="w-full table-fixed">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
+                <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
+                <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">Phone</th>
+                <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">Link</th>
+                <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
+                <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">Notes</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white">
+            <tr>
+                <td class="py-3 px-6 border-b border-gray-200">John Doe</td>
+                <td class="py-3 px-6 border-b border-gray-200 truncate">johndoe@gmail.com</td>
+                <td class="py-3 px-6 border-b border-gray-200">555-555-5555</td>
+                <td class="py-3 px-6 border-b border-gray-200"><a href="#" class="font-medium text-blue-600 hover:underline">Read more</a></td>
+                <td class="py-3 px-6 border-b border-gray-200">
+                     <span class="bg-red-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">Critical</span>
+                </td>
+                <td class="py-3 px-6 border-b border-gray-200">Follow-up required</td>
+            </tr>
+            <tr class="bg-gray-50">
+                <td class="py-3 px-6 border-b border-gray-200">Jane Doe</td>
+                <td class="py-3 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
+                <td class="py-3 px-6 border-b border-gray-200">555-555-5555</td>
+                <td class="py-3 px-6 border-b border-gray-200"><a href="#" class="font-medium text-blue-600 hover:underline">Read more</a></td>
+                <td class="py-3 px-6 border-b border-gray-200">
+                     <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">High</span>
+                </td>
+                <td class="py-3 px-6 border-b border-gray-200">Scheduled meeting</td>
+            </tr>
+            <tr>
+                <td class="py-3 px-6 border-b border-gray-200">Jane Smith</td>
+                <td class="py-3 px-6 border-b border-gray-200 truncate">janesmith@gmail.com</td>
+                <td class="py-3 px-6 border-b border-gray-200">555-555-5556</td>
+                <td class="py-3 px-6 border-b border-gray-200"><a href="#" class="font-medium text-blue-600 hover:underline">Read more</a></td>
+                <td class="py-3 px-6 border-b border-gray-200">
+                    <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">Medium</span>
+                </td>
+                <td class="py-3 px-6 border-b border-gray-200">No action needed</td>
+            </tr>
+            <tr class="bg-gray-50">
+                <td class="py-3 px-6 border-b border-gray-200">Alex Doe</td>
+                <td class="py-3 px-6 border-b border-gray-200 truncate">alexdoe@gmail.com</td>
+                <td class="py-3 px-6 border-b border-gray-200">555-555-5557</td>
+                <td class="py-3 px-6 border-b border-gray-200"><a href="#" class="font-medium text-blue-600 hover:underline">Read more</a></td>
+                <td class="py-3 px-6 border-b border-gray-200">
+                    <span class="bg-green-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">Low</span>
+                </td>
+                <td class="py-3 px-6 border-b border-gray-200">Escalation needed</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

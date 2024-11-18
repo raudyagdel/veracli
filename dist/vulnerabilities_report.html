@@ -3,1359 +3,1530 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Vulnerabilities Report
-  </title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <!-- Bootstrap Bundle with Popper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries">
   </script>
  </head>
- <body>
-  <div class="container mt-3">
-   <h2>
-    Summary
-   </h2>
-   <div class="mb-3">
-    <span class="badge" style="font-size: 1.5rem; padding: 0.5rem 1rem; background-color: darkred; color: white;">
-     Critical: 4
-    </span>
-    <span class="badge" style="font-size: 1.5rem; padding: 0.5rem 1rem; background-color: red; color: white;">
-     High: 26
-    </span>
-    <span class="badge" style="font-size: 1.5rem; padding: 0.5rem 1rem; background-color: orange; color: black;">
-     Medium: 28
-    </span>
-    <span class="badge" style="font-size: 1.5rem; padding: 0.5rem 1rem; background-color: green; color: white;">
-     Low: 1
-    </span>
+ <body class="bg-white-100">
+  <!-- Title and Subtitle -->
+  <div class="px-4 sm:px-8 mt-8">
+   <h1 class="text-3xl font-bold text-gray-700">
+    Incident Dashboard
+   </h1>
+   <p class="text-gray-500 mt-2">
+    Overview of all incidents and their current status
+   </p>
+  </div>
+  <!-- Summary Section -->
+  <div class="grid grid-cols-1 gap-4 px-4 mt-8 sm:grid-cols-4 sm:px-8">
+   <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+    <div class="p-4 bg-red-500">
+     <svg class="h-12 w-12 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      </path>
+     </svg>
+    </div>
+    <div class="px-4 text-gray-700">
+     <h3 class="text-sm tracking-wider">
+      Critical
+     </h3>
+     <p class="text-3xl">
+      4
+     </p>
+    </div>
    </div>
-   <h2>
-    Vulnerabilities
-   </h2>
-   <table class="table table-bordered">
-    <thead class="table-light">
-     <tr>
-      <th>
+   <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+    <div class="p-4 bg-orange-500">
+     <svg class="h-12 w-12 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 7v8a2 2 0 002 2h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      </path>
+     </svg>
+    </div>
+    <div class="px-4 text-gray-700">
+     <h3 class="text-sm tracking-wider">
+      High
+     </h3>
+     <p class="text-3xl">
+      26
+     </p>
+    </div>
+   </div>
+   <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+    <div class="p-4 bg-yellow-500">
+     <svg class="h-12 w-12 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 7a4 4 0 01-8 0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      </path>
+     </svg>
+    </div>
+    <div class="px-4 text-gray-700">
+     <h3 class="text-sm tracking-wider">
+      Medium
+     </h3>
+     <p class="text-3xl">
+      28
+     </p>
+    </div>
+   </div>
+   <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+    <div class="p-4 bg-green-500">
+     <svg class="h-12 w-12 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4.354a4 4 0 110 5.292" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      </path>
+     </svg>
+    </div>
+    <div class="px-4 text-gray-700">
+     <h3 class="text-sm tracking-wider">
+      Low
+     </h3>
+     <p class="text-3xl">
+      1
+     </p>
+    </div>
+   </div>
+  </div>
+  <!-- Table Section -->
+  <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10 mt-8 bg-white">
+   <table class="w-full table-fixed">
+    <thead>
+     <tr class="bg-gray-100">
+      <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">
        NAME
       </th>
-      <th>
+      <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">
        INSTALLED
       </th>
-      <th>
+      <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">
        FIXED-IN
       </th>
-      <th>
+      <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">
        TYPE
       </th>
-      <th>
+      <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">
        VULNERABILITY
       </th>
-      <th>
+      <th class="w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase">
        SEVERITY
       </th>
      </tr>
     </thead>
-    <tbody>
+    <tbody class="bg-white">
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        bcprov-jdk15on
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.64
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-WJXJ-5M7G-MG7Q">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-WJXJ-5M7G-MG7Q">
         GHSA-WJXJ-5M7G-MG7Q
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        bcprov-jdk15on
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.64
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.78
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-V435-XC8X-WVR9">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-V435-XC8X-WVR9">
         GHSA-V435-XC8X-WVR9
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        bcprov-jdk15on
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.64
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.78
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-M44J-CFRM-G8QC">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-M44J-CFRM-G8QC">
         GHSA-M44J-CFRM-G8QC
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        bcprov-jdk15on
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.64
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-HR8G-6V94-X4M9">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-HR8G-6V94-X4M9">
         GHSA-HR8G-6V94-X4M9
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        bcprov-jdk15on
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.64
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.78
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-8XFC-GM6G-VGPV">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-8XFC-GM6G-VGPV">
         GHSA-8XFC-GM6G-VGPV
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        bcprov-jdk15on
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.64
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.66
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-6XX3-RG99-GC3P">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-6XX3-RG99-GC3P">
         GHSA-6XX3-RG99-GC3P
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        commons-fileupload
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.5
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-HFRX-6QGJ-FP6C">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-HFRX-6QGJ-FP6C">
         GHSA-HFRX-6QGJ-FP6C
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        commons-io
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.2
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.14.0
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-78WR-2P64-HPWJ">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-78WR-2P64-HPWJ">
         GHSA-78WR-2P64-HPWJ
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        commons-io
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.2
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.7
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-GWRP-PVRQ-JMWV">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-GWRP-PVRQ-JMWV">
         GHSA-GWRP-PVRQ-JMWV
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        jackson-databind
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.11.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.12.7.1
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-RGV9-Q543-RQG4">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-RGV9-Q543-RQG4">
         GHSA-RGV9-Q543-RQG4
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        jackson-databind
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.11.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.12.7.1
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-JJJH-JJXP-WPFF">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-JJJH-JJXP-WPFF">
         GHSA-JJJH-JJXP-WPFF
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        jackson-databind
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.11.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.12.6.1
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-57J2-W4CX-62H2">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-57J2-W4CX-62H2">
         GHSA-57J2-W4CX-62H2
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        jackson-databind
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.11.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.12.6
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-3X8X-79M2-3W2W">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-3X8X-79M2-3W2W">
         GHSA-3X8X-79M2-3W2W
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        json-smart
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.3
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.4.9
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-493P-PFQ6-5258">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-493P-PFQ6-5258">
         GHSA-493P-PFQ6-5258
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        json-smart
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.3
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.3.1
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-V528-7HRM-FRQP">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-V528-7HRM-FRQP">
         GHSA-V528-7HRM-FRQP
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        junit
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        4.13
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        4.13.1
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-269G-PWP5-87PP">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-269G-PWP5-87PP">
         GHSA-269G-PWP5-87PP
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        logback-classic
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.2.3
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.2.13
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-VMQ6-5M68-F53M">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-VMQ6-5M68-F53M">
         GHSA-VMQ6-5M68-F53M
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        logback-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.2.3
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.2.13
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-VMQ6-5M68-F53M">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-VMQ6-5M68-F53M">
         GHSA-VMQ6-5M68-F53M
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        logback-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.2.3
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.2.9
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-668Q-QRV7-99FM">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-668Q-QRV7-99FM">
         GHSA-668Q-QRV7-99FM
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        snakeyaml
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.27
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.0
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-MJMJ-J48Q-9WG2">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-MJMJ-J48Q-9WG2">
         GHSA-MJMJ-J48Q-9WG2
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        snakeyaml
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.27
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.31
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-3MC7-4Q67-W48M">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-3MC7-4Q67-W48M">
         GHSA-3MC7-4Q67-W48M
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        snakeyaml
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.27
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.32
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-W37G-RHQ8-7M4J">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-W37G-RHQ8-7M4J">
         GHSA-W37G-RHQ8-7M4J
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        snakeyaml
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.27
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.31
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-HHHW-99GJ-P3C3">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-HHHW-99GJ-P3C3">
         GHSA-HHHW-99GJ-P3C3
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        snakeyaml
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.27
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.31
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-C4R9-R8FH-9VJ2">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-C4R9-R8FH-9VJ2">
         GHSA-C4R9-R8FH-9VJ2
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        snakeyaml
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.27
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.32
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-9W3M-GQGF-C4P9">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-9W3M-GQGF-C4P9">
         GHSA-9W3M-GQGF-C4P9
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        snakeyaml
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.27
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        1.31
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-98WM-3W3Q-MW94">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-98WM-3W3Q-MW94">
         GHSA-98WM-3W3Q-MW94
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-beans
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.18
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-36P3-WJMG-H94X">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-36P3-WJMG-H94X">
         GHSA-36P3-WJMG-H94X
        </a>
       </td>
-      <td class="fw-bolder" style="color:darkred;">
-       Critical
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-red-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Critical
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-beans
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.20
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-HH26-6XWR-GGV7">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-HH26-6XWR-GGV7">
         GHSA-HH26-6XWR-GGV7
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-boot-autoconfigure
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.4.3
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.5.15
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-XF96-W227-R7C4">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-XF96-W227-R7C4">
         GHSA-XF96-W227-R7C4
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-cloud-openfeign-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        3.0.2
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        3.0.5
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-PF94-6V2V-CM3J">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-PF94-6V2V-CM3J">
         GHSA-PF94-6V2V-CM3J
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-context
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.19
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-G5MM-VMX4-3RG7">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-G5MM-VMX4-3RG7">
         GHSA-G5MM-VMX4-3RG7
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-context
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        6.1.14
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-4GC7-5J7H-4QPH">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-4GC7-5J7H-4QPH">
         GHSA-4GC7-5J7H-4QPH
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.11
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-RFMP-97JJ-H8M6">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-RFMP-97JJ-H8M6">
         GHSA-RFMP-97JJ-H8M6
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.14
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-6GF2-PVQW-37PH">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-6GF2-PVQW-37PH">
         GHSA-6GF2-PVQW-37PH
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-data-mongodb
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        3.1.5
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        3.3.5
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-W24X-87MR-4R23">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-W24X-87MR-4R23">
         GHSA-W24X-87MR-4R23
        </a>
       </td>
-      <td class="fw-bolder" style="color:darkred;">
-       Critical
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-red-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Critical
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-expression
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.27
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-WXQC-PXW9-G2P8">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-WXQC-PXW9-G2P8">
         GHSA-WXQC-PXW9-G2P8
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-expression
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.39
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-9CMQ-M9J5-MVWW">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-9CMQ-M9J5-MVWW">
         GHSA-9CMQ-M9J5-MVWW
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-expression
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.26
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-564R-HJ7V-MCR5">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-564R-HJ7V-MCR5">
         GHSA-564R-HJ7V-MCR5
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-expression
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.17
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-558X-2XJG-6232">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-558X-2XJG-6232">
         GHSA-558X-2XJG-6232
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-web
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        6.0.0
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-4WRC-F8PQ-FPQP">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-4WRC-F8PQ-FPQP">
         GHSA-4WRC-F8PQ-FPQP
        </a>
       </td>
-      <td class="fw-bolder" style="color:darkred;">
-       Critical
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-red-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Critical
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-web
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.33
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-HGJH-9RJ2-G67J">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-HGJH-9RJ2-G67J">
         GHSA-HGJH-9RJ2-G67J
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-web
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.7
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-GFWJ-FWQJ-FP3V">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-GFWJ-FWQJ-FP3V">
         GHSA-GFWJ-FWQJ-FP3V
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-web
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.32
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-CCGV-VJ62-XF9H">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-CCGV-VJ62-XF9H">
         GHSA-CCGV-VJ62-XF9H
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-web
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.34
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-2WRP-6FG6-HMC5">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-2WRP-6FG6-HMC5">
         GHSA-2WRP-6FG6-HMC5
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-web
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.38
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-2RMJ-MQ67-H97G">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-2RMJ-MQ67-H97G">
         GHSA-2RMJ-MQ67-H97G
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-webmvc
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.18
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-36P3-WJMG-H94X">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-36P3-WJMG-H94X">
         GHSA-36P3-WJMG-H94X
        </a>
       </td>
-      <td class="fw-bolder" style="color:darkred;">
-       Critical
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-red-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Critical
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        spring-webmvc
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        5.3.4
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        6.1.13
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-CX7F-G6MP-7HQM">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-CX7F-G6MP-7HQM">
         GHSA-CX7F-G6MP-7HQM
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.90
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-WM9W-RJJ3-J356">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-WM9W-RJJ3-J356">
         GHSA-WM9W-RJJ3-J356
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.69
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-RQ2W-37H9-VG94">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-RQ2W-37H9-VG94">
         GHSA-RQ2W-37H9-VG94
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.68
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-P22X-G9PX-3945">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-P22X-G9PX-3945">
         GHSA-P22X-G9PX-3945
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.71
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-HFRX-6QGJ-FP6C">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-HFRX-6QGJ-FP6C">
         GHSA-HFRX-6QGJ-FP6C
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.83
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-FCCV-JMMP-QG76">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-FCCV-JMMP-QG76">
         GHSA-FCCV-JMMP-QG76
        </a>
       </td>
-      <td class="fw-bolder" style="color:red;">
-       High
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-orange-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        High
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.81
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-R6J3-PX5G-CQ3X">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-R6J3-PX5G-CQ3X">
         GHSA-R6J3-PX5G-CQ3X
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.81
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-QPPJ-FM5R-HXR3">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-QPPJ-FM5R-HXR3">
         GHSA-QPPJ-FM5R-HXR3
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.80
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-Q3MW-PVR8-9GGC">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-Q3MW-PVR8-9GGC">
         GHSA-Q3MW-PVR8-9GGC
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.81
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-G8PJ-R55Q-5C2V">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-G8PJ-R55Q-5C2V">
         GHSA-G8PJ-R55Q-5C2V
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.86
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-7W75-32CG-R6G2">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-7W75-32CG-R6G2">
         GHSA-7W75-32CG-R6G2
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        tomcat-embed-websocket
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.43
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        9.0.86
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-V682-8VV8-VPWR">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-V682-8VV8-VPWR">
         GHSA-V682-8VV8-VPWR
        </a>
       </td>
-      <td class="fw-bolder" style="color:orange;">
-       Medium
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-yellow-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Medium
+       </span>
       </td>
      </tr>
      <tr>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        xmlunit-core
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.7.0
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        2.10.0
       </td>
-      <td>
+      <td class="py-3 px-6 border-b border-gray-200">
        java-archive
       </td>
-      <td>
-       <a href="https://vulners.com/osv/OSV:GHSA-CHFM-68VV-PVW5">
+      <td class="py-3 px-6 border-b border-gray-200">
+       <a class="font-medium text-blue-600 hover:underline" href="https://vulners.com/osv/OSV:GHSA-CHFM-68VV-PVW5">
         GHSA-CHFM-68VV-PVW5
        </a>
       </td>
-      <td class="fw-bolder" style="color:green;">
-       Low
+      <td class="py-3 px-6 border-b border-gray-200">
+       <span class="bg-green-500 text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">
+        Low
+       </span>
       </td>
      </tr>
     </tbody>
    </table>
+  </div>
+  <div class="mt-8">
   </div>
  </body>
 </html>

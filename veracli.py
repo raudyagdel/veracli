@@ -35,10 +35,10 @@ def run_veracode_scan(scan_type, source, output_file="scan_output.txt"):
 def parse_to_html():
     # Reads the scan output file and converts it to an HTML table.
     severity_colors = {
-        "Critical": "darkred",
-        "High": "red",
-        "Medium": "orange",
-        "Low": "green",
+        "Critical": "bg-red-500",
+        "High": "bg-orange-500",
+        "Medium": "bg-yellow-500",
+        "Low": "bg-green-500",
     }
     
     # Count occurrences of each severity
@@ -72,38 +72,81 @@ def parse_to_html():
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vulnerabilities Report</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Bootstrap Bundle with Popper JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    </head>
-    <body>
-        <div class="container mt-3">
-            <h2>Summary</h2>
-            <div class="mb-3">
-                <span class="badge" style="font-size: 1.5rem; padding: 0.5rem 1rem; background-color: darkred; color: white;">Critical: {}</span>
-                <span class="badge" style="font-size: 1.5rem; padding: 0.5rem 1rem; background-color: red; color: white;">High: {}</span>
-                <span class="badge" style="font-size: 1.5rem; padding: 0.5rem 1rem; background-color: orange; color: black;">Medium: {}</span>
-                <span class="badge" style="font-size: 1.5rem; padding: 0.5rem 1rem; background-color: green; color: white;">Low: {}</span>
-            </div>
-            
-            <h2>Vulnerabilities</h2>
-            <table class="table table-bordered">
-                <thead class="table-light">
-                    <tr>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+</head>
+<body class="bg-white-100">
+
+  <!-- Title and Subtitle -->
+  <div class="px-4 sm:px-8 mt-8">
+    <h1 class="text-3xl font-bold text-gray-700">Incident Dashboard</h1>
+    <p class="text-gray-500 mt-2">Overview of all incidents and their current status</p>
+  </div>
+
+  <!-- Summary Section -->
+  <div class="grid grid-cols-1 gap-4 px-4 mt-8 sm:grid-cols-4 sm:px-8">
+    <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+      <div class="p-4 bg-red-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7"></path>
+        </svg>
+      </div>
+      <div class="px-4 text-gray-700">
+        <h3 class="text-sm tracking-wider">Critical</h3>
+        <p class="text-3xl">{}</p>
+      </div>
+    </div>
+    <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+      <div class="p-4 bg-orange-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6"></path>
+        </svg>
+      </div>
+      <div class="px-4 text-gray-700">
+        <h3 class="text-sm tracking-wider">High</h3>
+        <p class="text-3xl">{}</p>
+      </div>
+    </div>
+    <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+      <div class="p-4 bg-yellow-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7a4 4 0 01-8 0"></path>
+        </svg>
+      </div>
+      <div class="px-4 text-gray-700">
+        <h3 class="text-sm tracking-wider">Medium</h3>
+        <p class="text-3xl">{}</p>
+      </div>
+    </div>
+    <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
+      <div class="p-4 bg-green-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292"></path>
+        </svg>
+      </div>
+      <div class="px-4 text-gray-700">
+        <h3 class="text-sm tracking-wider">Low</h3>
+        <p class="text-3xl">{}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table Section -->
+  <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10 mt-8 bg-white">
+    <table class="w-full table-fixed">
+        <thead>
+            <tr class="bg-gray-100">
     """
 
     # Add table headers
     headers = vulnerabilities[0].split()
-    html += "".join(f"<th>{header}</th>" for header in headers) + "</tr>\n"
+    html += "".join(f"<th class=\"w-1/6 py-3 px-6 text-left text-gray-600 font-bold uppercase\">{header}</th>" for header in headers) + "</tr>\n"
     
     # Close the headers
     html += """
             </thead>
-            <tbody>
+             <tbody class="bg-white">
     """
     
     # Process each row
@@ -126,12 +169,14 @@ def parse_to_html():
         color = severity_colors.get(severity, "black") 
         
         html += "<tr>"
-        html += f"""<td>{name}</td>
-                    <td>{installed}</td>
-                    <td>{fixed_in}</td>
-                    <td>{type_column}</td>
-                    <td><a href="https://vulners.com/osv/OSV:{vulnerability.upper()}">{vulnerability.upper()}</a></td>
-                    <td class="fw-bolder" style='color:{color};'>{severity}</td>
+        html += f"""<td class="py-3 px-6 border-b border-gray-200">{name}</td>
+                    <td class="py-3 px-6 border-b border-gray-200">{installed}</td>
+                    <td class="py-3 px-6 border-b border-gray-200">{fixed_in}</td>
+                    <td class="py-3 px-6 border-b border-gray-200">{type_column}</td>
+                    <td class="py-3 px-6 border-b border-gray-200"><a href="https://vulners.com/osv/OSV:{vulnerability.upper()}" class="font-medium text-blue-600 hover:underline">{vulnerability.upper()}</a></td>
+                    <td class="py-3 px-6 border-b border-gray-200">
+                        <span class="{color} text-white inline-block text-center px-2 py-1 rounded text-md font-semibold">{severity}</span>
+                    </td>
                 """
         html += "</tr>\n"
     
@@ -139,6 +184,9 @@ def parse_to_html():
     html += """
                 </tbody>
             </table>
+        </div>
+        
+        <div class="mt-8">
         </div>
     </body>
     </html>
