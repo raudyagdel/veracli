@@ -35,10 +35,10 @@ def run_veracode_scan(scan_type, source, output_file="scan_output.txt"):
 def parse_to_html():
     # Reads the scan output file and converts it to an HTML table.
     severity_colors = {
-        "Critical": "bg-red-500",
-        "High": "bg-orange-500",
-        "Medium": "bg-yellow-500",
-        "Low": "bg-green-500",
+        "Critical": "bg-pink-500",
+        "High": "bg-red-500",
+        "Medium": "bg-orange-500",
+        "Low": "bg-yellow-500",
     }
     
     # Count occurrences of each severity
@@ -87,7 +87,7 @@ def parse_to_html():
   <!-- Summary Section -->
   <div class="grid grid-cols-1 gap-4 px-4 mt-8 sm:grid-cols-4 sm:px-8">
     <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-      <div class="p-4 bg-red-500">
+      <div class="p-4 bg-pink-500">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7"></path>
         </svg>
@@ -98,7 +98,7 @@ def parse_to_html():
       </div>
     </div>
     <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-      <div class="p-4 bg-orange-500">
+      <div class="p-4 bg-red-500">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6"></path>
         </svg>
@@ -109,7 +109,7 @@ def parse_to_html():
       </div>
     </div>
     <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-      <div class="p-4 bg-yellow-500">
+      <div class="p-4 bg-orange-500">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7a4 4 0 01-8 0"></path>
         </svg>
@@ -120,7 +120,7 @@ def parse_to_html():
       </div>
     </div>
     <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-      <div class="p-4 bg-green-500">
+      <div class="p-4 bg-yellow-500">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292"></path>
         </svg>
@@ -226,7 +226,7 @@ def main():
     save_html(html_content)
 
     # Delete temporary output file
-    os.remove(output_file)
+    # os.remove(output_file)
 
 if __name__ == "__main__":
     main()
