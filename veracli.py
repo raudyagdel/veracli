@@ -2,6 +2,7 @@ import os
 import re
 import subprocess
 import argparse
+import sys
 from bs4 import BeautifulSoup
 
 def run_veracode_scan(scan_type, source, output_file="scan_output.txt"):
@@ -213,6 +214,12 @@ def main():
 
     args = parser.parse_args()
 
+    # Check if essential arguments are missing and show help if true
+    if not args.type or not args.source:
+      print("Error: Missing required arguments!")
+      parser.print_help()
+      sys.exit(1) 
+    
     # Run Veracode scan and get the output file path
     output_file = run_veracode_scan(args.type, args.source, args.output)
     if not output_file:
