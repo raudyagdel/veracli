@@ -1,2 +1,4 @@
 pyinstaller
 beautifulsoup4
+openpyxl
+Pillow

@@ -2,7 +2,7 @@ import os
 import argparse
 import sys
 import xml.etree.ElementTree as ET
-import openpyxl
+from openpyxl import Workbook
 from openpyxl.styles import PatternFill, Font
 from openpyxl.drawing.image import Image
 from openpyxl.styles import Alignment
@@ -149,7 +149,7 @@ def extract_license(xml_file):
 
 
 def export_to_excel(components, output_file='licenses.xlsx'):
-    wb = openpyxl.Workbook()
+    wb = Workbook()
     ws = wb.active
     ws.title = 'Licenses'
 
@@ -228,7 +228,7 @@ def export_to_excel(components, output_file='licenses.xlsx'):
                     # Adjust the vertical centering by calculating the row offset
                     offset_y = (row_height - img.height) // 2  # Center the image vertically in the row
                     
-                    img1 = openpyxl.drawing.image.Image(risk_rating_icon_path)
+                    img1 = Image(risk_rating_icon_path)
                     p2e = pixels_to_EMU
                     h, w = img1.height, img1.width
                     position = XDRPoint2D(p2e(500), p2e(500))
@@ -282,6 +282,7 @@ def main():
     metadata = extract_metada(args.xml)
     output_file_name = generate_filename(metadata)
     export_to_excel(licences, output_file_name)
+    sys.exit(1) 
 
 if __name__ == "__main__":
     main()
